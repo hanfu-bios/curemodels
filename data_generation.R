@@ -114,33 +114,3 @@ nonparametric_time_generator <- function (N, beta_w, maxT = 20, knots = 8)
   }
   return(t)
 }
-
-# dev.new(width=10,height=4,noRStudioGD = TRUE)
-# par(mfrow=c(1,2), mar=c(5,5,4,2)+0.1)
-# time = seq(0,20,0.1)
-# plot(time, 1-MonotonicSpline(time), type = 'l', xlab = "Time", ylab = "Survival", lwd = 2) # survival
-# plot(time[-length(time)], diff(MonotonicSpline(time))/(1-MonotonicSpline(time))[-length(time)], type = 'l',
-#      xlab = "Time", ylab = "Hazard", lwd = 2) # hazard
-# setwd("~/Documents/Research/CoxMCM/plot/")
-# dev2bitmap("nonparametric_Surv_Haz_exp20_J100.jpeg", res = 750, height = 4, width=10)
-# plot(diff(MonotonicSpline(time)))
-
-# dev.new(width=10,height=4,noRStudioGD = TRUE)
-# par(mfrow=c(1,2), mar=c(5,5,4,2)+0.1)
-# time = seq(0.01,10,0.01)
-# plot(time, pgengamma(time, mu=-log(2), sigma = 1, Q=0.5, lower.tail = FALSE), type = 'l', xlab = "Time", ylab = "Survival", lwd = 2) # survival
-# plot(time, dgengamma(time, mu=-log(2), sigma = 1, Q=0.5)/
-#                 pgengamma(time, mu=-log(2), sigma = 1, Q=0.5, lower.tail = FALSE), type = 'l',
-#      xlab = "Time", ylab = "Hazard", lwd = 2) # hazard
-# setwd("~/Documents/Research/CoxMCM/plot/")
-# dev2bitmap("ggbase_Surv_Haz.jpeg", res = 750, height = 4, width=10)
-
-# plot_gg <- function(mu, sigma, Q){
-#   time = seq(0.01,10,0.01)
-#   plot(time, dgengamma(time, mu = mu, sigma = sigma, Q=Q)/
-#          pgengamma(time, mu=mu, sigma = sigma, Q=Q, lower.tail = FALSE), 
-#        type="l",ylab="Hazard", main = paste0("sigma=",sigma,", Q=", Q))
-# }
-# 
-# par(mfrow=c(2,2), mar=c(2,4,4,2)+0.1)
-# for(Q in 1/(2:5)) plot_gg(mu = -log(2), sigma = 1, Q)
